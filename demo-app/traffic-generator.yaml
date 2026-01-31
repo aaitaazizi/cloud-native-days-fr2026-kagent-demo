@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: traffic-generator
+  namespace: default
+  labels:
+    app: traffic-generator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: traffic-generator
+  template:
+    metadata:
+      labels:
+        app: traffic-generator
+    spec:
+      containers:
+      - name: curl
+        image: curlimages/curl:8.10.1
+        args:
+          - /bin/sh
+          - -c
+          - |
+            echo "Starting traffic generator to $TARGET_URL at one request every ${SLEEP_SECONDS}s";
+            while true; do
+              code=$(curl -sS -o /dev/null -w "%{http_code}" "$TARGET_URL");
+              echo "$(date -Is) -> $TARGET_URL -> $code";
+              sleep "$SLEEP_SECONDS";
+            done
+        env:
+        - name: TARGET_URL
+          value: "http://frontend:9090/"
+        - name: SLEEP_SECONDS
+          value: "1"
+        resources:
+          requests:
+            cpu: 10m
+            memory: 32Mi
+          limits:
+            cpu: 50m
+            memory: 64Mi
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 1000
+          runAsGroup: 1000
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+      restartPolicy: Always
