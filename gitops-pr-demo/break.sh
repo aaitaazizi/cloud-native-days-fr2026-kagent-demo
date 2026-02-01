@@ -5,7 +5,7 @@ TEMP_DIR=$(mktemp -d)
 echo "Created temporary directory: $TEMP_DIR"
 
 # Clone the repository
-git clone git@github.com:aaitaazizi/cloud-native-days-fr2026-kagent-demo.git"$TEMP_DIR"
+git clone https://github.com/aaitaazizi/cloud-native-days-fr2026-kagent-demo.git "$TEMP_DIR"
 cd "$TEMP_DIR/demo-app"
 
 # Configure git user (required for commits)
@@ -16,7 +16,7 @@ git config user.name "breakit"
 git checkout main
 
 # Modify the targetPort in the backend Service only
-sed -i '' '/name: backend/,/^---/ s/targetPort: 9090/targetPort: 8080/' demo-app/application.yaml
+sed -i '' '/name: backend/,/^---/ s/targetPort: 9090/targetPort: 8080/' application.yaml
 
 # Commit the changes to main
 git add .

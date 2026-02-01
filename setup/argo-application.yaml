@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/nimishamehta5/sample-app.git
+    repoURL: https://github.com/aaitaazizi/cloud-native-days-fr2026-kagent-demo.git
     targetRevision: HEAD
-    path: .
+    path: demo-app
   destination:
     server: https://kubernetes.default.svc
     namespace: default
