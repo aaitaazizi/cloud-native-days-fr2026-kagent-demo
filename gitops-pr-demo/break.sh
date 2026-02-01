@@ -5,22 +5,22 @@ TEMP_DIR=$(mktemp -d)
 echo "Created temporary directory: $TEMP_DIR"
 
 # Clone the repository
-git clone git@github.com:nimishamehta5/sample-app.git "$TEMP_DIR"
-cd "$TEMP_DIR"
+git clone git@github.com:aaitaazizi/cloud-native-days-fr2026-kagent-demo.git"$TEMP_DIR"
+cd "$TEMP_DIR/demo-app"
 
 # Configure git user (required for commits)
-git config user.email "script@example.com"
-git config user.name "EnvBreaker"
+git config user.email "breakit@example.com"
+git config user.name "breakit"
 
 # Make sure we're on main
 git checkout main
 
-# Get the broken files from the branch
-git checkout origin/broken-scenario-incorrect-service-port -- .
+# Modify the targetPort in the backend Service only
+sed -i '' '/name: backend/,/^---/ s/targetPort: 9090/targetPort: 8080/' demo-app/application.yaml
 
 # Commit the changes to main
 git add .
-git commit -m "Making some changes to the environment, don't worry about it, it works on my machine"
+git commit -m "Breakit and change service targetport"
 
 # Push main
 git push origin main

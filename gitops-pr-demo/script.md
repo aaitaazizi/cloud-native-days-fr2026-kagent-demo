@@ -2,7 +2,7 @@
 
 1. Port-forward argocd server and visit http://localhost:8080
 ```bash
-kubectl -n default port-forward service/argocd-server -n argocd 8080:443
+kubectl -n default port-forward service/argocd-server -n argocd 9000:443
 ```
 
 2. Port forward the frontend service and view healthy application.
@@ -16,7 +16,7 @@ Open http://localhost:9090/ui/
 ./break.sh
 ```
 
-4. The sample-app repo should now show the broken commit: https://github.com/nimishamehta5/sample-app
+4. The sample-app repo should now show the broken commit: https://github.com/aaitaazizi
 
 5. Go to Argo UI, sync the application. The frontend will show the application as unhealthy.
 
