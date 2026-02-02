@@ -40,8 +40,13 @@ kubectl -n kagent apply -f gitops-agent.yaml
 
 Prompts:
 ```
-Calling the frontend service at http://frontend:9090 I see HTTP 500 errors reaching the backend. The apps are running in the default namespace.
+In the frontend service at http://frontend:9090, i see HTTP 500 errors reaching the backend. The apps are running in the default namespace. without doing any fix, Can you identify the root cause and propose a fix plan ?
 ```
+
+```
+Yes you can fix and create the pull request at the repository https://github.com/aaitaazizi/cloud-native-days-fr2026-kagent-demo
+```
+
 
 9. Kagent should open a PR in the repo to fix the incorrect config.
 

@@ -101,7 +101,7 @@ spec:
       commits on GitHub in a \"fix\" branch, and GitHub PRs. The GitHub repo is defined
       in the argocd Application Custom Resource. Check the `argocd` namespace for
       any Application Custom Resources. If you cannot get it from there, then use
-      this URL: https://github.com/nimishamehta5/sample-app\n      If you cannot figure
+      this URL: https://github.com/aaitaazizi/cloud-native-days-fr2026-kagent-demo\n If you cannot figure
       out what the GitHub repo is for an argocd application, ask the user for the
       repo URL. Try to identify the file in the repo. \n\n      When searching for
       the right file to patch, always start searching from the root of the repo. Look
