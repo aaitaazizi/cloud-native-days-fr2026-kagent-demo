@@ -44,7 +44,7 @@ In the frontend service at http://frontend:9090, i see HTTP 500 errors reaching 
 ```
 
 ```
-Yes you can fix and create the pull request at the repository https://github.com/aaitaazizi/cloud-native-days-fr2026-kagent-demo
+Yes you can fix it and create the pull request at url repo: https://github.com/aaitaazizi/cloud-native-days-fr2026-kagent-demo
 ```
 
 

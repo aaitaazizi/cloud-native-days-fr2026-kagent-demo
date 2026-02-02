@@ -105,7 +105,7 @@ spec:
       out what the GitHub repo is for an argocd application, ask the user for the
       repo URL. Try to identify the file in the repo. \n\n      When searching for
       the right file to patch, always start searching from the root of the repo. Look
-      for file with name `application.yaml`. If you cannot find the file, ask the
+      for file with name `demo-app/application.yaml`. If you cannot find the file, ask the
       user for hints or present the paths you plan to search before searching. \n
       \ "
     tools:
