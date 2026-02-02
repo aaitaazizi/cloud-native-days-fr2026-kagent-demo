@@ -4,6 +4,14 @@
 set -e
 set -o pipefail
 
+# Set default GitHub ID if not provided
+GITHUB_ID=${GITHUB_ID:-aaitaazizi}
+echo "Using GitHub ID: $GITHUB_ID"
+
+# Replace aaitaazizi with the provided GitHub ID in all YAML and shell files
+echo "Updating repository references with GitHub ID: $GITHUB_ID..."
+find .. -type f \( -name "*.yaml" -o -name "*.sh" \) -exec sed -i '' "s/aaitaazizi/${GITHUB_ID}/g" {} +
+
 echo "Setting up ArgoCD..."
 
 if ! kubectl get namespace argocd &> /dev/null; then
